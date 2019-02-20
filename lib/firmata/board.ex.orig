@@ -42,6 +42,8 @@ defmodule Firmata.Board do
   def sonar_config(board, trigger, echo, max_distance, ping_interval) do
     set_pin_mode(board, trigger, @sonar)
     set_pin_mode(board, echo, @sonar)
+    max_distance_lsb = max_distance &&& 0x7f
+    max_distance_msb = (max_distance >>> 7) &&& 0x7f
     max_distance_lsb = max_distance &&& 0x7F
     max_distance_msb = max_distance >>> 7 &&& 0x7F
     data = <<trigger, echo, max_distance_lsb, max_distance_msb, ping_interval>>
@@ -144,19 +146,32 @@ defmodule Firmata.Board do
   end
 
   def handle_info({:capability_response, pins}, state) do
+<<<<<<< HEAD
+=======
+    Logger.info("#{inspect(pins)}")
+>>>>>>> write_buffer
     state = Map.put(state, :pins, pins)
     send_data(state, <<@start_sysex, @analog_mapping_query, @end_sysex>>)
     {:noreply, state}
   end
 
   def handle_info({:analog_mapping_response, mapping}, state) do
+<<<<<<< HEAD
+    pins = state[:pins]
+    |> Enum.zip(mapping)
+    |> Enum.map(fn({pin, map})-> Keyword.merge(pin, map) end)
+    |> Enum.map(fn pin -> Keyword.merge(pin, [interface: nil]) end)
+=======
+    Logger.info("#{inspect(mapping)}")
 
     pins =
       state[:pins]
       |> Enum.zip(mapping)
+      |> IO.inspect()
       |> Enum.map(fn {pin, map} -> Keyword.merge(pin, map) end)
       |> Enum.map(fn pin -> Keyword.merge(pin, interface: nil) end)
 
+>>>>>>> write_buffer
     state = Map.put(state, :pins, pins)
     send_info(state, {:pin_map, state[:pins]})
     {:noreply, state}
