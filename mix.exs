@@ -2,14 +2,16 @@ defmodule Firmata.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :firmata,
-     version: "0.0.2",
-     elixir: "~> 1.1",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     description: description,
-     package: package,
-     deps: deps]
+    [
+      app: :firmata,
+      version: "0.0.2",
+      elixir: "~> 1.1",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      description: description(),
+      package: package(),
+      deps: deps()
+    ]
   end
 
   # Configuration for the OTP application
@@ -30,7 +32,7 @@ defmodule Firmata.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:nerves_uart, "~> 0.1.2"},
+      {:nerves_uart, "~> 1.2.1"},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end

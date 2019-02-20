@@ -9,7 +9,7 @@ defmodule Firmata.Writer do
   defmodule State do
     defstruct [
       :interface,
-      messages: [],
+      messages: []
     ]
   end
 
@@ -39,8 +39,8 @@ defmodule Firmata.Writer do
     {:reply, data, %State{state | messages: state.messages ++ [{:data, data}]}}
   end
 
-  def handle_info(:health_check, %State{messages: messages} = state ) do
-    Logger.info "Message Queue: #{Enum.count(messages)}"
+  def handle_info(:health_check, %State{messages: messages} = state) do
+    Logger.info("Message Queue: #{Enum.count(messages)}")
     Process.send_after(self(), :health_check, 1000)
     {:noreply, state}
   end
@@ -58,11 +58,11 @@ defmodule Firmata.Writer do
   end
 
   defp build_packet([], packet), do: {packet, []}
+
   defp build_packet([{:data, data} | t] = messages, packet \\ "") do
     case packet <> data do
       p when byte_size(p) < @packet_length -> build_packet(t, p)
       _ignore -> {packet, messages}
     end
   end
-
 end
