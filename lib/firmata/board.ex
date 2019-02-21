@@ -15,7 +15,7 @@ defmodule Firmata.Board do
   }
 
   def start_link(port, opts \\ [], name \\ nil) do
-    opts = Keyword.put(opts, :interface, self)
+    opts = Keyword.put(opts, :interface, self())
     GenServer.start_link(__MODULE__, {port, opts}, name: name)
   end
 
@@ -126,7 +126,7 @@ defmodule Firmata.Board do
     {outbox, parser} =
       Enum.reduce(data, {state.outbox, state.parser}, &Firmata.Protocol.parse(&2, &1))
 
-    Enum.each(outbox, &send(self, &1))
+    Enum.each(outbox, &send(self(), &1))
     {:noreply, %{state | outbox: [], parser: parser}}
   end
 
@@ -150,7 +150,6 @@ defmodule Firmata.Board do
   end
 
   def handle_info({:analog_mapping_response, mapping}, state) do
-
     pins =
       state[:pins]
       |> Enum.zip(mapping)
@@ -197,7 +196,7 @@ defmodule Firmata.Board do
     {:noreply, state}
   end
 
-  defp send_data(state, data), do: Firmata.Writer.write(data)
+  defp send_data(_state, data), do: Firmata.Writer.write(data)
 
   defp send_info(state, info, interface \\ nil) do
     case interface do
@@ -217,7 +216,7 @@ defmodule Firmata.Board do
         pin
       end)
 
-    state = Map.put(state, :pins, pins)
+    Map.put(state, :pins, pins)
   end
 
   defp analog_channel_to_pin_index(state, channel) do
