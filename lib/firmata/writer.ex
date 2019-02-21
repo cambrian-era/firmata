@@ -1,7 +1,7 @@
 defmodule Firmata.Writer do
   use GenServer
   require Logger
-  alias Nerves.UART, as: Serial
+  alias Circuits.UART, as: Serial
 
   @packet_length Application.get_env(:firmata, :packet_length) || 24
   @packet_rate Application.get_env(:firmata, :packet_rate) || 5

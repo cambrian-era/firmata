@@ -73,11 +73,11 @@ defmodule Firmata.Board do
     speed = opts[:speed] || 57600
     uart_opts = [speed: speed, active: true]
 
-    {:ok, serial} = Nerves.UART.start_link()
-    :ok = Nerves.UART.open(serial, port, uart_opts)
+    {:ok, serial} = Circuits.UART.start_link()
+    :ok = Circuits.UART.open(serial, port, uart_opts)
 
-    Nerves.UART.write(serial, <<@system_reset>>)
-    Nerves.UART.write(serial, <<@report_version>>)
+    Circuits.UART.write(serial, <<@system_reset>>)
+    Circuits.UART.write(serial, <<@report_version>>)
 
     Firmata.Writer.start_link(serial)
 
