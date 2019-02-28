@@ -4,6 +4,31 @@ defmodule Firmata.Board do
   require Logger
   alias Firmata.Protocol.State, as: ProtocolState
 
+  @moduledoc """
+  This module describes the board that is being communicated with
+  and is the primary module that a user will interact with.
+
+  ## Pin Modes <a name="pinmodes"></a>
+
+  | Mode         |
+  |--------------|
+  | `@input`     |
+  | `@output`    |
+  | `@analog`    |
+  | `@pwm`       |
+  | `@servo`     |
+  | `@shift`     |
+  | `@i2c`       |
+  | `@onewire`   |
+  | `@stepper`   |
+  | `@serial`    |
+  | `@ignore`    |
+  | `@ping_read` |
+  | `@sonar`     |
+  | `@unknown`   |
+  
+  """
+
   @initial_state %{
     pins: [],
     outbox: [],
@@ -14,6 +39,9 @@ defmodule Firmata.Board do
     serial: nil
   }
 
+  @doc """
+  Connects to the firmata host at port.
+  """
   def start_link(port, opts \\ [], name \\ nil) do
     opts = Keyword.put(opts, :interface, self())
     GenServer.start_link(__MODULE__, {port, opts}, name: name)
@@ -23,10 +51,17 @@ defmodule Firmata.Board do
     GenServer.call(pid, :stop)
   end
 
+  @doc """
+  Requests that the board 'report' the value on channel to this process.
+  It will send messages of the format: `{:firmata, {:analog_read, channel, value}}`
+  """
   def report_analog_channel(board, channel, value) do
     GenServer.call(board, {:report_analog_channel, channel, value})
   end
 
+  @doc """
+  Sets the pin to the given [mode](#pinmodes).
+  """
   def set_pin_mode(board, pin, mode) do
     GenServer.call(board, {:set_pin_mode, pin, mode})
   end

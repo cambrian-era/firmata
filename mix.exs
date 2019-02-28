@@ -33,7 +33,8 @@ defmodule Firmata.Mixfile do
   defp deps do
     [
       {:circuits_uart, "~> 1.3.1"},
-      {:ex_doc, ">= 0.0.0", only: :dev}
+      {:earmark, "~> 1.2", only: :dev},
+      {:ex_doc, "~> 0.19", only: :dev}
     ]
   end
 

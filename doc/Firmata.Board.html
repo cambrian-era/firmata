@@ -1,60 +1,52 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.16.3">
-    <title>Firmata.Board – firmata v0.0.2</title>
-    <link rel="stylesheet" href="dist/app-5b9e160cec.css" />
-    
-      <link rel="canonical" href="https://hexdocs.pm/firmata/Firmata.Board.html" />
-    
-    <script src="dist/sidebar_items-aca634d20b.js"></script>
+    <meta name="generator" content="ExDoc v0.19.3">
+    <title>Firmata.Board — firmata v0.0.2</title>
+    <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
+    <script src="dist/sidebar_items-3569628710.js"></script>
+    <script async src="dist/html-399e30b9b028e3059575.js"></script>
     
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
-
     <div class="main">
-<button class="sidebar-toggle">
+<button class="sidebar-button sidebar-toggle">
   <span class="icon-menu" aria-hidden="true"></span>
   <span class="sr-only">Toggle Sidebar</span>
 </button>
+<button class="sidebar-button night-mode-toggle">
+  <span class="icon-theme" aria-hidden="true"></span>
+  <span class="sr-only">Toggle Theme</span>
+</button>
 <section class="sidebar">
 
-  
   <a href="api-reference.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
-        firmata
-      </h1>
+firmata      </h1>
       <h2 class="sidebar-projectVersion">
         v0.0.2
       </h2>
     </div>
-    
   </a>
 
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button">
       <span class="icon-search" aria-hidden="true"></span>
     </button>
-    <input name="q" type="text" id="search-list" class="search-input" placeholder="search" aria-label="Search" autocomplete="off" />
+    <input name="q" type="text" id="search-list" class="search-input" placeholder="Search" aria-label="Search" autocomplete="off" />
   </form>
 
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
 
-    
       <li><a id="modules-list" href="#full-list">Modules</a></li>
-    
 
-    
 
-    
-
-    
   </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
@@ -67,13 +59,71 @@
 
       <h1>
         <small class="visible-xs">firmata v0.0.2</small>
-        Firmata.Board
-        
-      </h1>
+Firmata.Board              </h1>
 
-      
 
-      
+        <section id="moduledoc">
+<p>This module describes the board that is being communicated with
+and is the primary module that a user will interact with.</p>
+<h2 id="module-pin-modes" class="section-heading">
+  <a href="#module-pin-modes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Pin Modes <a name="pinmodes"></a>
+</h2>
+
+<table>
+<colgroup>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Mode</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left"><code class="inline">@input</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@output</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@analog</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@pwm</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@servo</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@shift</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@i2c</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@onewire</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@stepper</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@serial</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@ignore</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@ping_read</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@sonar</code></td>
+</tr>
+<tr>
+<td style="text-align: left"><code class="inline">@unknown</code></td>
+</tr>
+</table>
+        </section>
+
         <section id="summary" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#summary">
@@ -82,221 +132,332 @@
             </a>
             Summary
           </h1>
-          
-
-          
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
     </h2>
-    <div class="summary-row">
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#child_spec/1">child_spec(init_arg)</a>
+  </div>
+    <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor</p>
+</div>
+</div>
+<div class="summary-row">
   <div class="summary-signature">
     <a href="#digital_write/3">digital_write(board, pin, value)</a>
   </div>
-  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#init/1">init(arg)</a>
+  </div>
+    <div class="summary-synopsis"><p>Invoked when the server is started. <a href="#start_link/3"><code class="inline">start_link/3</code></a> or <code class="inline">start/3</code> will
+block until it returns</p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#neopixel/3">neopixel(board, index, arg)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#neopixel_brightness/2">neopixel_brightness(board, brightness)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#neopixel_register/3">neopixel_register(board, pin, num_pixels)</a>
+  </div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#pin_state/2">pin_state(board, pin)</a>
+  </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#report_analog_channel/3">report_analog_channel(board, channel, value)</a>
   </div>
-  
+    <div class="summary-synopsis"><p>Requests that the board &#39;report&#39; the value on channel to this process.
+It will send messages of the format: <code class="inline">{:firmata, {:analog_read, channel, value}}</code></p>
+</div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#set_pin_mode/3">set_pin_mode(board, pin, mode)</a>
   </div>
-  
+    <div class="summary-synopsis"><p>Sets the pin to the given <a href="#pinmodes">mode</a></p>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#sonar_config/5">sonar_config(board, trigger, echo, max_distance, ping_interval)</a>
+  </div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#start_link/3">start_link(port, opts \\ [], name \\ nil)</a>
   </div>
-  
+    <div class="summary-synopsis"><p>Connects to the firmata host at port</p>
+</div>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#stop/1">stop(pid)</a>
   </div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#sysex_write/3">sysex_write(board, cmd, data)</a>
   </div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#to_hex/1">to_hex(arg)</a>
   </div>
-  
+    <div class="summary-synopsis"><p>Converts a byte to a string hex representation</p>
 </div>
-
+</div>
   </div>
-
-
-          
-
         </section>
-      
 
-      
-
-      
         <section id="functions" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#functions">
               <span class="icon-link" aria-hidden="true"></span>
               <span class="sr-only">Link to this section</span>
             </a>
-            Functions
-          </h1>
-          <div class="detail" id="digital_write/3">
-  
-  
-  <div class="detail-header">
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="child_spec/1">
+    <div class="detail-header">
+    <a href="#child_spec/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">child_spec(init_arg)</span>
+          </div>
+  <section class="docstring">
+<p>Returns a specification to start this module under a supervisor.</p>
+<p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="digital_write/3">
+    <div class="detail-header">
     <a href="#digital_write/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">digital_write(board, pin, value)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">digital_write(board, pin, value)</span>
+          </div>
   <section class="docstring">
-    
   </section>
-</div>
-<div class="detail" id="report_analog_channel/3">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="init/1">
+    <div class="detail-header">
+    <a href="#init/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">init(arg)</span>
+          </div>
+  <section class="docstring">
+<p>Invoked when the server is started. <a href="#start_link/3"><code class="inline">start_link/3</code></a> or <code class="inline">start/3</code> will
+block until it returns.</p>
+<p><code class="inline">init_arg</code> is the argument term (second argument) passed to <a href="#start_link/3"><code class="inline">start_link/3</code></a>.</p>
+<p>Returning <code class="inline">{:ok, state}</code> will cause <a href="#start_link/3"><code class="inline">start_link/3</code></a> to return
+<code class="inline">{:ok, pid}</code> and the process to enter its loop.</p>
+<p>Returning <code class="inline">{:ok, state, timeout}</code> is similar to <code class="inline">{:ok, state}</code>
+except <code class="inline">handle_info(:timeout, state)</code> will be called after <code class="inline">timeout</code>
+milliseconds if no messages are received within the timeout.</p>
+<p>Returning <code class="inline">{:ok, state, :hibernate}</code> is similar to <code class="inline">{:ok, state}</code>
+except the process is hibernated before entering the loop. See
+<code class="inline">c:handle_call/3</code> for more information on hibernation.</p>
+<p>Returning <code class="inline">{:ok, state, {:continue, continue}}</code> is similar to
+<code class="inline">{:ok, state}</code> except that immediately after entering the loop
+the <code class="inline">c:handle_continue/2</code> callback will be invoked with the value
+<code class="inline">continue</code> as first argument.</p>
+<p>Returning <code class="inline">:ignore</code> will cause <a href="#start_link/3"><code class="inline">start_link/3</code></a> to return <code class="inline">:ignore</code> and
+the process will exit normally without entering the loop or calling
+<code class="inline">c:terminate/2</code>. If used when part of a supervision tree the parent
+supervisor will not fail to start nor immediately try to restart the
+<a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a>. The remainder of the supervision tree will be started
+and so the <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a> should not be required by other processes.
+It can be started later with <a href="https://hexdocs.pm/elixir/Supervisor.html#restart_child/2"><code class="inline">Supervisor.restart_child/2</code></a> as the child
+specification is saved in the parent supervisor. The main use cases for
+this are:</p>
+<ul>
+<li>The <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a> is disabled by configuration but might be enabled later.
+</li>
+<li>An error occurred and it will be handled by a different mechanism than the
+   <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>. Likely this approach involves calling <a href="https://hexdocs.pm/elixir/Supervisor.html#restart_child/2"><code class="inline">Supervisor.restart_child/2</code></a>
+after a delay to attempt a restart.
+</li>
+</ul>
+<p>Returning <code class="inline">{:stop, reason}</code> will cause <a href="#start_link/3"><code class="inline">start_link/3</code></a> to return
+<code class="inline">{:error, reason}</code> and the process to exit with reason <code class="inline">reason</code> without
+entering the loop or calling <code class="inline">c:terminate/2</code>.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/elixir/GenServer.html#c:init/1"><code class="inline">GenServer.init/1</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="neopixel/3">
+    <div class="detail-header">
+    <a href="#neopixel/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">neopixel(board, index, arg)</span>
+          </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="neopixel_brightness/2">
+    <div class="detail-header">
+    <a href="#neopixel_brightness/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">neopixel_brightness(board, brightness)</span>
+          </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="neopixel_register/3">
+    <div class="detail-header">
+    <a href="#neopixel_register/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">neopixel_register(board, pin, num_pixels)</span>
+          </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="pin_state/2">
+    <div class="detail-header">
+    <a href="#pin_state/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">pin_state(board, pin)</span>
+          </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="report_analog_channel/3">
+    <div class="detail-header">
     <a href="#report_analog_channel/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">report_analog_channel(board, channel, value)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">report_analog_channel(board, channel, value)</span>
+          </div>
   <section class="docstring">
-    
+<p>Requests that the board &#39;report&#39; the value on channel to this process.
+It will send messages of the format: <code class="inline">{:firmata, {:analog_read, channel, value}}</code></p>
   </section>
-</div>
-<div class="detail" id="set_pin_mode/3">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="set_pin_mode/3">
+    <div class="detail-header">
     <a href="#set_pin_mode/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">set_pin_mode(board, pin, mode)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">set_pin_mode(board, pin, mode)</span>
+          </div>
   <section class="docstring">
-    
+<p>Sets the pin to the given <a href="#pinmodes">mode</a>.</p>
   </section>
-</div>
-<div class="detail" id="start_link/3">
-  
+</section>
+<section class="detail" id="sonar_config/5">
+    <div class="detail-header">
+    <a href="#sonar_config/5" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">sonar_config(board, trigger, echo, max_distance, ping_interval)</span>
+          </div>
+  <section class="docstring">
+  </section>
+</section>
+<section class="detail" id="start_link/3">
   
     <span id="start_link/1"></span>
-  
+
     <span id="start_link/2"></span>
-  
   <div class="detail-header">
     <a href="#start_link/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">start_link(port, opts \\ [], name \\ nil)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">start_link(port, opts \\ [], name \\ nil)</span>
+          </div>
   <section class="docstring">
-    
+<p>Connects to the firmata host at port.</p>
   </section>
-</div>
-<div class="detail" id="stop/1">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="stop/1">
+    <div class="detail-header">
     <a href="#stop/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">stop(pid)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">stop(pid)</span>
+          </div>
   <section class="docstring">
-    
   </section>
-</div>
-<div class="detail" id="sysex_write/3">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="sysex_write/3">
+    <div class="detail-header">
     <a href="#sysex_write/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">sysex_write(board, cmd, data)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">sysex_write(board, cmd, data)</span>
+          </div>
   <section class="docstring">
-    
   </section>
-</div>
-<div class="detail" id="to_hex/1">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="to_hex/1">
+    <div class="detail-header">
     <a href="#to_hex/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">to_hex(arg)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">to_hex(arg)</span>
+          </div>
   <section class="docstring">
-    
+<p>Converts a byte to a string hex representation.</p>
+<p>Returns the hex representation of <code class="inline">byte</code></p>
+<h2 id="to_hex/1-examples" class="section-heading">
+  <a href="#to_hex/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Examples:
+</h2>
+
+<p>  iex&gt; Firmata.Protocol.Mixin.to_hex(&lt;<10>&gt;)
+  &quot;0xA&quot;</p>
   </section>
-</div>
-
+</section>
+          </div>
         </section>
-      
-
-      
           <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.16.3),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.3),
           </span>
           <span class="line">
             designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
             </span>
         </p>
-        <button class="night-mode-toggle"><span class="sr-only">Switch theme</span></button>
       </footer>
     </div>
   </div>
 </section>
 </div>
-  <script src="dist/app-da04b39d0c.js"></script>
   
   </body>
 </html>

@@ -1,10 +1,10 @@
-dist/app-5b9e160cec.css
-dist/app-da04b39d0c.js
-fonts/icomoon.eot
-fonts/icomoon.svg
-fonts/icomoon.ttf
-fonts/icomoon.woff
-dist/sidebar_items-aca634d20b.js
+dist/html-399e30b9b028e3059575.css
+dist/html-399e30b9b028e3059575.js
+dist/html/fonts/icomoon.eot
+dist/html/fonts/icomoon.svg
+dist/html/fonts/icomoon.ttf
+dist/html/fonts/icomoon.woff
+dist/sidebar_items-3569628710.js
 api-reference.html
 search.html
 404.html
@@ -16,4 +16,6 @@ Firmata.Protocol.Mixin.html
 Firmata.Protocol.Modes.html
 Firmata.Protocol.State.html
 Firmata.Protocol.Sysex.html
+Firmata.Writer.html
+Firmata.Writer.State.html
 index.html

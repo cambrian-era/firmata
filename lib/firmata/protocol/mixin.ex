@@ -1,4 +1,10 @@
 defmodule Firmata.Protocol.Mixin do
+  @moduledoc """
+  Provides a number of convenience attributes for Firmata protocol
+  commands.
+  """
+
+  @doc false
   defmacro __using__(_) do
     quote location: :keep do
       use Bitwise
@@ -67,6 +73,16 @@ defmodule Firmata.Protocol.Mixin do
       # arg0 pixel_index, arg1 red, arg2 green, arg3 blue
       @neopixel 0x72
 
+      @doc """
+      Converts a byte to a string hex representation.
+
+      Returns the hex representation of `byte`
+
+      ## Examples:
+
+        iex> Firmata.Protocol.Mixin.to_hex(<<10>>)
+        "0xA"
+      """
       def to_hex(<<byte>>) do
         "0x" <> Integer.to_string(byte, 16)
       end
