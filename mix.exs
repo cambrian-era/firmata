@@ -32,9 +32,9 @@ defmodule Firmata.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:circuits_uart, "~> 1.3.1"},
-      {:earmark, "~> 1.2", only: :dev},
-      {:ex_doc, "~> 0.19", only: :dev}
+      {:circuits_uart, "~> 1.3.2"},
+      {:earmark, "~> 1.3.5", only: :dev},
+      {:ex_doc, "~> 0.21.1", only: :dev}
     ]
   end
 
@@ -49,10 +49,10 @@ defmodule Firmata.Mixfile do
   defp package do
     [
       files: ["lib", "mix.exs", "README.md", "LICENSE"],
-      maintainers: ["Keyvan Fatehi", "Christopher Coté"],
+      maintainers: ["Keyvan Fatehi", "Christopher Coté", "Merisa Furchtgott"],
       licenses: ["ISC"],
       links: %{
-        "GitHub" => "https://github.com/entone/firmata",
+        "GitHub" => "https://github.com/cambrian-era/firmata",
         "Firmata Protocol" => "https://github.com/firmata/protocol"
       }
     ]
